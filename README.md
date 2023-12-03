@@ -4,9 +4,9 @@ A simple UITableView implementation for SwiftUI.
 
 ## Description
 
-SimpleUIList is a simple `UITableView` wrapper designed for usage in SwiftUI, specifically focused in chat applications. This was inspired by multiple issues found while implementing a chat list in SwiftUI, such as starting the list at the bottom during different iOS versions, performance problems and reversing list issues with `contextMenu`.
+**SimpleUIList** is a simple `UITableView` wrapper designed for usage in SwiftUI, specifically focused in chat applications. This was inspired by multiple issues found while implementing a chat list in SwiftUI, such as starting the list at the bottom for different iOS versions, performance problems and reversing list issues with `contextMenu`. All of those are solved with SimpleUIList!
 
-This package aims to resolve these problems reliably.
+Another cool feature is that it maintains the `contentOffset` when updating the first element of the data in the `UITableView` (when the list is reversed).
 
 Support: **iOS 13+**
 
@@ -29,9 +29,9 @@ var body: some View {
 }
 ```
 
-- **startAtBottom**: This starts the list at the bottom of the UITableView.
+- **startAtBottom**: This starts the list at the bottom of the `UITableView`.
 
-- **reverseList**: This reverses the order of the elements in the UITableView. This feature is particularly beneficial for a chat application, where you'd want to maintain the scroll position when the keyboard appears (like Telegram, Whatsapp, etc.). This provides the only reliable method to include this feature in SwiftUI.
+- **reverseList**: This reverses the order of the elements in the `UITableView`. This feature is particularly beneficial for a chat application, where you'd want to maintain the scroll position when the keyboard appears (like Telegram, Whatsapp, etc.).
 
 ## Installation
 
