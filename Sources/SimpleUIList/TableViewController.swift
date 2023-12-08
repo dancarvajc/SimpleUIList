@@ -9,10 +9,10 @@ import SwiftUI
 import UIKit
 
 public final class TableViewController<Cell: View, ItemType: Identifiable>: UIViewController, UITableViewDataSource {
-    private let tableView = UITableView()
     private let content: (ItemType) -> Cell
     private let reversedEnabled: Bool
     var data: [ItemType] = []
+    let tableView = UITableView()
     var isFirstAppearing = true
 
     public init(reversedEnabled: Bool, @ViewBuilder content: @escaping (ItemType) -> Cell) {
