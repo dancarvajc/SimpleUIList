@@ -9,7 +9,7 @@ public struct SimpleUIList<Cell: View, ItemType: Identifiable>: UIViewController
     private let content: (ItemType) -> Cell
     private var reversedEnabled: Bool = false
     private var startAtBottom: Bool = false
-    private let onDataRefresh: ((UITableView) -> Void)?
+    private let onDataRefresh: ((any SimpleUIListProtocol) -> Void)?
     private let chatMode: Bool
 
     /// Initializer with chat mode enabled by default.
@@ -32,7 +32,7 @@ public struct SimpleUIList<Cell: View, ItemType: Identifiable>: UIViewController
     ///   - onDataRefresh: The action to perform when the input data is refreshed.
     public init(_ data: [ItemType],
                 @ViewBuilder content: @escaping (ItemType) -> Cell,
-                onDataRefresh: @escaping (UITableView) -> Void)
+                onDataRefresh: @escaping (any SimpleUIListProtocol) -> Void)
     {
         self.data = data
         self.content = content
@@ -46,7 +46,7 @@ public struct SimpleUIList<Cell: View, ItemType: Identifiable>: UIViewController
 
     public func updateUIViewController(_ uiViewController: TableViewController<Cell, ItemType>, context _: Context) {
         if !chatMode {
-            onDataRefresh?(uiViewController.tableView)
+            onDataRefresh?(uiViewController)
         } else {
             guard !data.isEmpty else { return }
             if uiViewController.isFirstAppearing {

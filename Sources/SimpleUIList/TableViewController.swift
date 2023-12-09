@@ -8,12 +8,12 @@
 import SwiftUI
 import UIKit
 
-public final class TableViewController<Cell: View, ItemType: Identifiable>: UIViewController, UITableViewDataSource {
+public final class TableViewController<Cell: View, ItemType: Identifiable>: UIViewController, UITableViewDataSource, SimpleUIListProtocol {
     private let content: (ItemType) -> Cell
     private let reversedEnabled: Bool
-    var data: [ItemType] = []
-    let tableView = UITableView()
-    var isFirstAppearing = true
+    public var data: [ItemType] = []
+    public var tableView = UITableView()
+    public var isFirstAppearing = true
 
     public init(reversedEnabled: Bool, @ViewBuilder content: @escaping (ItemType) -> Cell) {
         self.reversedEnabled = reversedEnabled
