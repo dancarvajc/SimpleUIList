@@ -37,6 +37,7 @@ public final class TableViewController<Cell: View, ItemType: Identifiable>: UIVi
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
+        tableView.keyboardDismissMode = .interactive
         tableView.register(cellClass: HostingTableViewCell<Cell>.self)
         if reversedEnabled {
             tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
